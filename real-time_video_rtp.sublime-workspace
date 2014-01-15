@@ -1,0 +1,601 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"fr",
+				"frame_type"
+			],
+			[
+				"get",
+				"Get_Energy"
+			],
+			[
+				"print",
+				"printf	printf …"
+			],
+			[
+				"v",
+				"video_height"
+			],
+			[
+				"vide",
+				"video_height"
+			],
+			[
+				"G",
+				"G_para"
+			],
+			[
+				"is",
+				"is_output_info"
+			],
+			[
+				"vid",
+				"video_width"
+			],
+			[
+				"inter",
+				"interval_pre"
+			],
+			[
+				"tim",
+				"time_temp"
+			],
+			[
+				"int",
+				"interval"
+			],
+			[
+				"Fr",
+				"Frame_Size"
+			],
+			[
+				"N",
+				"NAL_num"
+			]
+		]
+	},
+	"buffers":
+	[
+		{
+			"file": "codes/scr/main.cpp",
+			"settings":
+			{
+				"buffer_size": 2884,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "codes/scr/capture.cpp",
+			"settings":
+			{
+				"buffer_size": 5889,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "codes/scr/option.cpp",
+			"settings":
+			{
+				"buffer_size": 5067,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "Makefile",
+			"settings":
+			{
+				"buffer_size": 1838,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "codes/scr/encoder.cpp",
+			"settings":
+			{
+				"buffer_size": 3835,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "codes/inc/encoder.h",
+			"settings":
+			{
+				"buffer_size": 551,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "codes/scr/rtp.cpp",
+			"settings":
+			{
+				"buffer_size": 2535,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "codes/inc/rtph.h",
+			"settings":
+			{
+				"buffer_size": 108,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "codes/inc/global.h",
+			"settings":
+			{
+				"buffer_size": 2816,
+				"line_ending": "Unix"
+			}
+		}
+	],
+	"build_system": "Packages/User/CC.sublime-build",
+	"command_palette":
+	{
+		"height": 117.0,
+		"selected_items":
+		[
+			[
+				"git",
+				"Build: git"
+			],
+			[
+				"clean",
+				"Build: Clean"
+			],
+			[
+				"cle",
+				"Build: Clean"
+			]
+		],
+		"width": 392.0
+	},
+	"console":
+	{
+		"height": 146.0
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"file_history":
+	[
+		"/home/fred/software/JM/bin/encoder.cfg",
+		"/usr/share/lintian/data/menu-format/menu-sections",
+		"/home/fred/.cinnamon/configs/menu@cinnamon.org/menu@cinnamon.org.json",
+		"/home/fred/Real-Time_Video_RTP/codes/scr/trans.cpp",
+		"/home/fred/Real-Time_Video_RTP/codes/inc/trans.h",
+		"/home/fred/Real-Time_Video_RTP/codes/inc/capture.h",
+		"/home/fred/Real-Time_Video_RTP/codes/inc/global.h",
+		"/home/fred/Real-Time_Video_RTP/codes/scr/encoder.c",
+		"/home/fred/Real-Time_Video_RTP/data/yuv_output.yuv",
+		"/home/fred/Real-Time_Video_RTP/codes/scr/rt_mode.cpp",
+		"/home/fred/Real-Time_Video_RTP/codes/inc/rt_mode.h",
+		"/home/fred/Real-Time_Video_RTP/codes/scr/capture.cpp",
+		"/home/fred/msc-p1/code/opt.c",
+		"/home/fred/msc-p1/code/x264_encoder.h",
+		"/home/fred/msc-p1/code/opt.h",
+		"/home/fred/timetes/test.c",
+		"/home/fred/msc-p1/code/screen.c",
+		"/home/fred/msc-p1/Makefile",
+		"/home/fred/arduino_test/Makefile",
+		"/home/fred/arduino_test/use.c",
+		"/home/fred/arduino_test/uart.cpp",
+		"/home/fred/msc-p1/code/x264_encoder.c",
+		"/home/fred/msc-p1/github.sh",
+		"/home/fred/msc-p1/code/screen.h",
+		"/home/fred/.config/sublime-text-2/Packages/User/CC.sublime-build",
+		"/home/fred/vc/m.c",
+		"/home/fred/msc-p1/data/output.264",
+		"/home/fred/msc-p1/code/swc.c",
+		"/home/fred/x264encoder/makefile",
+		"/home/fred/msc-p1/code/video.c",
+		"/home/fred/msc-p1/msc.sublime-project"
+	],
+	"find":
+	{
+		"height": 35.0
+	},
+	"find_in_files":
+	{
+		"height": 0.0,
+		"where_history":
+		[
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+			"font",
+			"g_H264_Buf",
+			"YUVframe",
+			"Video_Set_Para",
+			"Video_Open",
+			"Video capture parameter error",
+			"bad",
+			"Video_Set_Format",
+			"buffer",
+			"buffer_mmap",
+			"buffer_request",
+			"buffer_request\nbuffer_request",
+			"buffer_request",
+			"buffer_dequeue",
+			"buffer_enqueue",
+			"buffer_free",
+			"buffer_init",
+			"video_streamoff",
+			"video_streamon",
+			"video_set_format",
+			"video_close",
+			"BUFFER_NUM",
+			"video_open",
+			"video_streamon",
+			"ht_ard3",
+			"PLATFORM",
+			"FID",
+			"RTPPac",
+			"640",
+			"480",
+			"printf",
+			"loop",
+			"flag",
+			"video_set_format",
+			"video.",
+			"video",
+			"para",
+			";\n",
+			"fid"
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+			"Video_Set_Para",
+			"Buffer_Map",
+			"Buffer_Request",
+			"buffer_request\nBuffer_Request",
+			"Buffer_Dequeue",
+			"Buffer_Enqueue",
+			"Buffer_Free",
+			"Buffer_Init",
+			"Video_Streamoff",
+			"Video_Streamon",
+			"Video_Set_Format",
+			"Video_Close",
+			"BUFFER_FRAME_NUM",
+			"Video_Open"
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"selected": 4,
+			"sheets":
+			[
+				{
+					"buffer": 0,
+					"file": "codes/scr/main.cpp",
+					"settings":
+					{
+						"buffer_size": 2884,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								522,
+								522
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/C++/C++.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "codes/scr/capture.cpp",
+					"settings":
+					{
+						"buffer_size": 5889,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								278,
+								278
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/C++/C++.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "codes/scr/option.cpp",
+					"settings":
+					{
+						"buffer_size": 5067,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1049,
+								1049
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/C++/C++.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 576.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 3,
+					"file": "Makefile",
+					"settings":
+					{
+						"buffer_size": 1838,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1766,
+								1766
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Makefile/Makefile.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 4,
+					"file": "codes/scr/encoder.cpp",
+					"settings":
+					{
+						"buffer_size": 3835,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								2407,
+								2407
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/C++/C++.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 2448.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 5,
+					"file": "codes/inc/encoder.h",
+					"settings":
+					{
+						"buffer_size": 551,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								543,
+								543
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/C++/C++.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 6,
+					"file": "codes/scr/rtp.cpp",
+					"settings":
+					{
+						"buffer_size": 2535,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1247,
+								1247
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/C++/C++.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 852.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 7,
+					"file": "codes/inc/rtph.h",
+					"settings":
+					{
+						"buffer_size": 108,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								108,
+								108
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/C++/C++.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 8,
+					"file": "codes/inc/global.h",
+					"settings":
+					{
+						"buffer_size": 2816,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								760,
+								760
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/C++/C++.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				}
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 0.0
+	},
+	"input":
+	{
+		"height": 34.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.exec":
+	{
+		"height": 197.0
+	},
+	"replace":
+	{
+		"height": 131.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+			[
+				"git",
+				"github.sh"
+			]
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"show_minimap": true,
+	"show_open_files": false,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 185.0,
+	"status_bar_visible": true
+}
