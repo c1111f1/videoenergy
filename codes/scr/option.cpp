@@ -37,8 +37,16 @@ void Global_Para_Init(int argc, char *argv[])
 void Global_Para_Default()
 {
 	/*Image and video parameters*/
+#ifdef PLATFORM_ARM
+	G_para.video_width = 176;
+	G_para.video_height = 144;
+#endif
+
+#ifdef PLATFORM_PC
 	G_para.video_width = 640;
 	G_para.video_height = 480;
+#endif
+
 	G_para.video_fps_num = 25;
 	G_para.video_fps_den = 1;
 

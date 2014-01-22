@@ -92,6 +92,14 @@
 			}
 		},
 		{
+			"file": "github.sh",
+			"settings":
+			{
+				"buffer_size": 93,
+				"line_ending": "Unix"
+			}
+		},
+		{
 			"file": "codes/scr/encoder.cpp",
 			"settings":
 			{
@@ -286,7 +294,7 @@
 	"groups":
 	[
 		{
-			"selected": 4,
+			"selected": 3,
 			"sheets":
 			[
 				{
@@ -301,8 +309,8 @@
 						"selection":
 						[
 							[
-								522,
-								522
+								1828,
+								1828
 							]
 						],
 						"settings":
@@ -311,7 +319,7 @@
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 0.0,
+						"translation.y": 648.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
@@ -355,8 +363,8 @@
 						"selection":
 						[
 							[
-								1049,
-								1049
+								1138,
+								1138
 							]
 						],
 						"settings":
@@ -365,7 +373,7 @@
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 576.0,
+						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
@@ -382,13 +390,39 @@
 						"selection":
 						[
 							[
-								1766,
-								1766
+								1272,
+								1272
 							]
 						],
 						"settings":
 						{
 							"syntax": "Packages/Makefile/Makefile.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 720.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 4,
+					"file": "github.sh",
+					"settings":
+					{
+						"buffer_size": 93,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								93,
+								93
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/ShellScript/Shell-Unix-Generic.tmLanguage"
 						},
 						"translation.x": 0.0,
 						"translation.y": 0.0,
@@ -397,7 +431,7 @@
 					"type": "text"
 				},
 				{
-					"buffer": 4,
+					"buffer": 5,
 					"file": "codes/scr/encoder.cpp",
 					"settings":
 					{
@@ -418,13 +452,13 @@
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 2448.0,
+						"translation.y": 1080.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
 				},
 				{
-					"buffer": 5,
+					"buffer": 6,
 					"file": "codes/inc/encoder.h",
 					"settings":
 					{
@@ -450,7 +484,7 @@
 					"type": "text"
 				},
 				{
-					"buffer": 6,
+					"buffer": 7,
 					"file": "codes/scr/rtp.cpp",
 					"settings":
 					{
@@ -477,7 +511,7 @@
 					"type": "text"
 				},
 				{
-					"buffer": 7,
+					"buffer": 8,
 					"file": "codes/inc/rtph.h",
 					"settings":
 					{
@@ -503,7 +537,7 @@
 					"type": "text"
 				},
 				{
-					"buffer": 8,
+					"buffer": 9,
 					"file": "codes/inc/global.h",
 					"settings":
 					{

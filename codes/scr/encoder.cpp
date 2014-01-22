@@ -47,8 +47,8 @@ void encode_init(Encoder *encoder, int img_width, int img_height)
 	encoder->param->b_vfr_input = 0;
 	encoder->param->rc.b_mb_tree = 0;
 	//encoder->param->rc.i_qp_constant = 30;
-	//encoder->param->rc.i_qp_min = 30;
-	//encoder->param->rc.i_qp_max = 30;
+	encoder->param->rc.i_qp_min = G_para.encoder_qp;
+	encoder->param->rc.i_qp_max = G_para.encoder_qp;
 	//encoder->param->analyse.i_me_method = X264_ME_DIA;
 	//encoder->param->analyse.i_me_range = 16;
 	//encoder->param->i_slice_max_size = 4000;

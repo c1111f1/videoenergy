@@ -15,7 +15,7 @@ AINCS = -I.\
 	   -I$(DIR)/libraries/LiquidCrystal 
 
 
-#PLATFORM = ARM
+PLATFORM = PC
 
 ifeq ($(PLATFORM),ARM)
 	CC = arm-linux-gnueabihf-g++

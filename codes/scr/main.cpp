@@ -72,7 +72,7 @@ int main(int argc, char *argv[])
 			YUV2_to_YUV420(G_video.Raw_YUV2, G_video.Raw_YUV420);
 		}
 
-		printf("capture Finish. ",frame_number);
+		printf("capture Finish. ");
 		energy = Get_Energy();
 		if (G_para.is_YUV_out)
 		{
