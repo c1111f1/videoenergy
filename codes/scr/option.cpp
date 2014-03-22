@@ -51,7 +51,7 @@ void Global_Para_Default()
 	G_para.video_fps_den = 1;
 
 	/*Encoder parameters*/
-	G_para.encoder_qp = 20;
+	G_para.encoder_qp = 30;
 	G_para.encoder_slice_max_size = 1000;
 
 	/*Input and output file for H264 stream, 
@@ -59,16 +59,16 @@ void Global_Para_Default()
 	strcpy(G_para.file_YUV_output, "data/yuv_output.yuv");
 	strcpy(G_para.file_h264_output, "data/264_output.264");
 	strcpy(G_para.file_info_output, "data/info.txt");
-	strcpy(G_para.file_YUV_input, "data/input.yuv");
+	strcpy(G_para.file_YUV_input, "/sdcard/YUV/foreman_qcif.yuv");
 
 	/*States and modes*/
-	G_para.is_h264_out = 1;	//0: do not output h264 file
+	G_para.is_h264_out = 0;	//0: do not output h264 file
 							//1: output h264 file
 
 	G_para.is_YUV_out = 0;	//0: do not output YUV file
 							//1: output YUV file
 
-	G_para.is_display = 1;	//0: do not display video locally
+	G_para.is_display = 0;	//0: do not display video locally
 							//1: display   
 							//   NOTE: For ARM, do not display
 
@@ -86,6 +86,12 @@ void Global_Para_Default()
 							//1: IPPP mode
 							//2: Optimization mode
 
+	G_para.encode_scenecout = 40;
+
+	G_para.encode_mv_range = -1;
+
+	G_para.encode_me_range = 16;
+
 	/*Communication parameters*/
 	G_para.ip_address_remote = "192.168.1.100";
 	G_para.ip_port_remote = 4444;
@@ -95,6 +101,101 @@ void Global_Para_Default()
 //Set parameters from command line
 void Global_Para_Deal(int argc, char *argv[])
 {
+	//-h height, -w width, -q qp, -p package size
+	//-i input YUV, -m run mode 0 real time 1 input file
+	//-c encode mode 0 I only 1 IPPP, 2 Optimization
+	//-e energy obtain 
+	//-a ip address, -r remote port, -l local port
+	//-s 
+	//-g,v g search range v mv range
+	//-o out put data
+	int opt;
+	while ((opt = getopt(argc, argv, "h:w:q:p:i:m:c:ea:r:l:s:g:o:")) != -1) 
+	{
+		switch(opt) 
+		{
+			case 'h':
+			{	
+				sscanf(optarg, "%d", &G_para.video_height);
+				break;
+			}
+			case 'w':
+			{	
+				sscanf(optarg, "%d", &G_para.video_width);
+				break;
+			}
+			case 'q':
+			{	
+				sscanf(optarg, "%d", &G_para.encoder_qp);
+				break;
+			}
+			case 'p':
+			{	
+				sscanf(optarg, "%d", &G_para.encoder_slice_max_size);
+				break;
+			}
+			case 'i':
+			{	
+				memset(G_para.file_YUV_input,0,100);
+				memcpy(G_para.file_YUV_input, optarg,strlen(optarg));
+				G_para.run_mode = 1;
+				break;
+			}
+			case 'm':
+			{	
+				sscanf(optarg, " %d", &G_para.run_mode);
+				break;
+			}
+			case 'c':
+			{	
+				sscanf(optarg, "%d", &G_para.encode_mode);
+				break;
+			}
+			case 'e':
+			{
+				G_para.is_energy_get = 1;
+				break;
+			}
+			case 'a':
+			{
+				G_para.ip_address_remote = optarg;
+				break;
+			}
+			case 'r':
+			{
+				sscanf(optarg, "%d", &G_para.ip_port_remote);
+				break;
+			}
+			case 'l':
+			{
+				sscanf(optarg, "%d", &G_para.ip_port_local);
+				break;
+			}
+			case 's':
+			{
+				sscanf(optarg, "%d", &G_para.encode_scenecout);
+				break;
+			}
+			case 'g':
+			{
+				sscanf(optarg, "%d", &G_para.encode_me_range);
+				break;
+			}
+			case 'v':
+			{
+				sscanf(optarg, "%d", &G_para.encode_mv_range);
+				break;
+			}
+			case 'o':
+			{
+				memset(G_para.file_info_output,0,100);
+				memcpy(G_para.file_info_output, optarg,strlen(optarg));
+				G_para.is_output_info = 1;
+				break;
+			}
+			
+		}
+	}
 
 }
 							
@@ -136,27 +237,30 @@ void Global_Para_Check()
 //Display all the parameters on terminal
 void Global_Para_Print()
 {
-	int feedback = system("clear");
-	printf("Real Time Video Coding and transimission Test Software with Energy\n");
-	printf("MSc Project of EEE Department in XJTLU - Candidate: Fei Cheng\n");
+	//int feedback = system("clear");
+	//printf("Real Time Video Coding and transimission Test Software with Energy\n");
+	//printf("MSc Project of EEE Department in XJTLU - Candidate: Fei Cheng\n");
 	printf("------------------------------------------------------------------\n");
 	printf("Platform          :  %s\n", DISPLAYFORM);
 	printf("Video Size        :  %d x %d\n", G_para.video_width, G_para.video_height);
 	printf("Frames per Second :  %d / %d\n", G_para.video_fps_num, G_para.video_fps_den);
 	printf("Output H.264 file :  %s\n", IFYESNO(G_para.is_h264_out));
 	printf("Output H.264 path :  %s\n", G_para.file_h264_output);
-	printf("Output YUV   file :  %s\n", IFYESNO(G_para.is_YUV_out));
-	printf("Output YUV   path :  %s\n", G_para.file_YUV_input);
+	printf("Output YUV file   :  %s\n", IFYESNO(G_para.is_YUV_out));
+	printf("Output YUV path   :  %s\n", G_para.file_YUV_output);
 	printf("Output info file  :  %s\n", IFINFO(G_para.is_output_info));
-	printf("Info file   path  :  %s\n", G_para.file_info_output);
-	printf("Display   video   :  %s\n", IFYESNO(G_para.is_display));
-	printf("Energy  info  get :  %s\n", IFYESNO(G_para.is_energy_get));
-	printf("Run    mode       :  %s\n", IFMODE(G_para.run_mode));
-	printf("Input  YUV  file  :  %s\n", G_para.file_YUV_input);
-	printf("Encode    mode    :  %s\n", IFENCMODE(G_para.encode_mode));
-	printf("Remote   IP       :  %s\n", G_para.ip_address_remote.c_str()); //Print string in C style
-	printf("Remote   port     :  %d\n", G_para.ip_port_remote);
-	printf("Local    port     :  %d\n", G_para.ip_port_local);
+	printf("Info file path    :  %s\n", G_para.file_info_output);
+	printf("Display video     :  %s\n", IFYESNO(G_para.is_display));
+	printf("Energy info get   :  %s\n", IFYESNO(G_para.is_energy_get));
+	printf("Run mode          :  %s\n", IFMODE(G_para.run_mode));
+	printf("Input YUV file    :  %s\n", G_para.file_YUV_input);
+	printf("Encode mode       :  %s\n", IFENCMODE(G_para.encode_mode));
+	printf("Encode QP         :  %d\n", G_para.encoder_qp);
+	printf("Encode slice size :  %d\n", G_para.encoder_slice_max_size);
+    printf("Encode scenecout  :  %d\n", G_para.encode_scenecout);
+	printf("Remote IP         :  %s\n", G_para.ip_address_remote.c_str()); //Print string in C style
+	printf("Remote port       :  %d\n", G_para.ip_port_remote);
+	printf("Local  port       :  %d\n", G_para.ip_port_local);
 	printf("------------------------------------------------------------------\n");
 }
 

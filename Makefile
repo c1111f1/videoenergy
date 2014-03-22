@@ -15,7 +15,7 @@ AINCS = -I.\
 	   -I$(DIR)/libraries/LiquidCrystal 
 
 
-PLATFORM = PC
+PLATFORM = ARM
 
 ifeq ($(PLATFORM),ARM)
 	CC = arm-linux-gnueabihf-g++
@@ -39,12 +39,12 @@ INC_C = -lx264 -lm -lpthread -ldl -I./$(INC_PATH) -I./codes/inc/rtp
 ifeq ($(PLATFORM),ARM)
 	LIBS = -lx264 -lm -lpthread -ljrtp -ljthread  -ldl -larduino
 	DEP_LIBS = -L./libs/libarm
+	EXENAME = rva
 else
 	LIBS = -lx264 -lm -lpthread -ljrtp -ljthread  -ldl
 	DEP_LIBS = -L./libs/libpc64
+	EXENAME = rv
 endif
-
-EXENAME = RT_Video
 
 OBJECTS = $(OBJ_PATH)main.o $(OBJ_PATH)option.o $(OBJ_PATH)capture.o \
 			$(OBJ_PATH)trans.o $(OBJ_PATH)encoder.o $(OBJ_PATH)rtp.o
@@ -54,6 +54,7 @@ all: $(BIN_PATH)$(EXENAME)
 
 $(BIN_PATH)$(EXENAME): $(OBJECTS)
 	$(CC) $(LDFLAGS) $(OBJECTS) -o $@ $(LIBS) $(DEP_LIBS)
+	scp bin/rva ubuntu@192.168.1.106:~/Real_Time_Video/
 
 $(OBJ_PATH)main.o: $(SRC_PATH)main.cpp
 	$(CC) $(CFLAGS) -c $< $(INC_C) $(AINCS) -o $@

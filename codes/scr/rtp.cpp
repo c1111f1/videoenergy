@@ -49,14 +49,14 @@ int RTP_init()
 	uint32_t destip;
 	std::string ipstr;
 	int status,i,num;
-	printf("Use default IP and port? (%s:%d)\n",G_para.ip_address_remote.c_str(),G_para.ip_port_remote);
-	if_default = getchar();
+	//printf("Use default IP and port? (%s:%d)\n",G_para.ip_address_remote.c_str(),G_para.ip_port_remote);
+	if_default = 'y';
 
 	if (if_default == 'y')
 	{
 		portbase=4444;
-		ipstr = "192.168.1.100";
-		destport = 4444;
+		ipstr = G_para.ip_address_remote;
+		destport = G_para.ip_port_remote;
 	}
 	else
 	{

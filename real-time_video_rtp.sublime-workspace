@@ -4,6 +4,34 @@
 		"selected_items":
 		[
 			[
+				"encoder_",
+				"encoder_slice_max_size"
+			],
+			[
+				"enc",
+				"encoder_qp"
+			],
+			[
+				"ip_po",
+				"ip_port_remote"
+			],
+			[
+				"ip_",
+				"ip_address_remote"
+			],
+			[
+				"vi",
+				"video_height"
+			],
+			[
+				"fi",
+				"input_YUV_file"
+			],
+			[
+				"video",
+				"video_height"
+			],
+			[
 				"fr",
 				"frame_type"
 			],
@@ -63,15 +91,7 @@
 			"file": "codes/scr/main.cpp",
 			"settings":
 			{
-				"buffer_size": 2884,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "codes/scr/capture.cpp",
-			"settings":
-			{
-				"buffer_size": 5889,
+				"buffer_size": 3687,
 				"line_ending": "Unix"
 			}
 		},
@@ -79,7 +99,7 @@
 			"file": "codes/scr/option.cpp",
 			"settings":
 			{
-				"buffer_size": 5067,
+				"buffer_size": 6567,
 				"line_ending": "Unix"
 			}
 		},
@@ -87,15 +107,7 @@
 			"file": "Makefile",
 			"settings":
 			{
-				"buffer_size": 1838,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "github.sh",
-			"settings":
-			{
-				"buffer_size": 93,
+				"buffer_size": 1839,
 				"line_ending": "Unix"
 			}
 		},
@@ -103,7 +115,7 @@
 			"file": "codes/scr/encoder.cpp",
 			"settings":
 			{
-				"buffer_size": 3835,
+				"buffer_size": 3884,
 				"line_ending": "Unix"
 			}
 		},
@@ -135,7 +147,7 @@
 			"file": "codes/inc/global.h",
 			"settings":
 			{
-				"buffer_size": 2816,
+				"buffer_size": 2809,
 				"line_ending": "Unix"
 			}
 		}
@@ -176,9 +188,9 @@
 	},
 	"file_history":
 	[
-		"/home/fred/software/JM/bin/encoder.cfg",
-		"/usr/share/lintian/data/menu-format/menu-sections",
-		"/home/fred/.cinnamon/configs/menu@cinnamon.org/menu@cinnamon.org.json",
+		"/home/fred/Code/Real-Time_Video_RTP/codes/scr/capture.cpp",
+		"/home/fred/Code/main.c",
+		"/home/fred/Code/Real-Time_Video_RTP/real-time_video_rtp.sublime-project",
 		"/home/fred/Real-Time_Video_RTP/codes/scr/trans.cpp",
 		"/home/fred/Real-Time_Video_RTP/codes/inc/trans.h",
 		"/home/fred/Real-Time_Video_RTP/codes/inc/capture.h",
@@ -224,7 +236,7 @@
 		"case_sensitive": false,
 		"find_history":
 		[
-			"font",
+			"is_output_info",
 			"g_H264_Buf",
 			"YUVframe",
 			"Video_Set_Para",
@@ -294,7 +306,7 @@
 	"groups":
 	[
 		{
-			"selected": 3,
+			"selected": 1,
 			"sheets":
 			[
 				{
@@ -302,15 +314,15 @@
 					"file": "codes/scr/main.cpp",
 					"settings":
 					{
-						"buffer_size": 2884,
+						"buffer_size": 3687,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								1828,
-								1828
+								1205,
+								1205
 							]
 						],
 						"settings":
@@ -319,25 +331,25 @@
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 648.0,
+						"translation.y": 2761.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
 				},
 				{
 					"buffer": 1,
-					"file": "codes/scr/capture.cpp",
+					"file": "codes/scr/option.cpp",
 					"settings":
 					{
-						"buffer_size": 5889,
+						"buffer_size": 6567,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								278,
-								278
+								1819,
+								1819
 							]
 						],
 						"settings":
@@ -346,52 +358,25 @@
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 0.0,
+						"translation.y": 1083.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
 				},
 				{
 					"buffer": 2,
-					"file": "codes/scr/option.cpp",
-					"settings":
-					{
-						"buffer_size": 5067,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								1138,
-								1138
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/C++/C++.tmLanguage",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 3,
 					"file": "Makefile",
 					"settings":
 					{
-						"buffer_size": 1838,
+						"buffer_size": 1839,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								1272,
-								1272
+								1361,
+								1361
 							]
 						],
 						"settings":
@@ -399,51 +384,25 @@
 							"syntax": "Packages/Makefile/Makefile.tmLanguage"
 						},
 						"translation.x": 0.0,
-						"translation.y": 720.0,
+						"translation.y": 456.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
 				},
 				{
-					"buffer": 4,
-					"file": "github.sh",
-					"settings":
-					{
-						"buffer_size": 93,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								93,
-								93
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/ShellScript/Shell-Unix-Generic.tmLanguage"
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 5,
+					"buffer": 3,
 					"file": "codes/scr/encoder.cpp",
 					"settings":
 					{
-						"buffer_size": 3835,
+						"buffer_size": 3884,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								2407,
-								2407
+								1006,
+								1006
 							]
 						],
 						"settings":
@@ -452,13 +411,13 @@
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 1080.0,
+						"translation.y": 1140.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
 				},
 				{
-					"buffer": 6,
+					"buffer": 4,
 					"file": "codes/inc/encoder.h",
 					"settings":
 					{
@@ -484,7 +443,7 @@
 					"type": "text"
 				},
 				{
-					"buffer": 7,
+					"buffer": 5,
 					"file": "codes/scr/rtp.cpp",
 					"settings":
 					{
@@ -495,8 +454,8 @@
 						"selection":
 						[
 							[
-								1247,
-								1247
+								1516,
+								1516
 							]
 						],
 						"settings":
@@ -505,13 +464,13 @@
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 852.0,
+						"translation.y": 1274.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
 				},
 				{
-					"buffer": 8,
+					"buffer": 6,
 					"file": "codes/inc/rtph.h",
 					"settings":
 					{
@@ -535,21 +494,27 @@
 						"zoom_level": 1.0
 					},
 					"type": "text"
-				},
+				}
+			]
+		},
+		{
+			"selected": 0,
+			"sheets":
+			[
 				{
-					"buffer": 9,
+					"buffer": 7,
 					"file": "codes/inc/global.h",
 					"settings":
 					{
-						"buffer_size": 2816,
+						"buffer_size": 2809,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								760,
-								760
+								2220,
+								2220
 							]
 						],
 						"settings":
@@ -558,7 +523,7 @@
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 0.0,
+						"translation.y": 1140.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
@@ -583,11 +548,18 @@
 				0,
 				1,
 				1
+			],
+			[
+				1,
+				0,
+				2,
+				1
 			]
 		],
 		"cols":
 		[
 			0.0,
+			0.5,
 			1.0
 		],
 		"rows":
@@ -620,11 +592,15 @@
 	},
 	"select_project":
 	{
-		"height": 0.0,
+		"height": 500.0,
 		"selected_items":
 		[
+			[
+				"",
+				"/home/fred/Code/Real-Time_Video_RTP/real-time_video_rtp.sublime-project"
+			]
 		],
-		"width": 0.0
+		"width": 380.0
 	},
 	"show_minimap": true,
 	"show_open_files": false,

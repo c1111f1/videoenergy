@@ -14,7 +14,7 @@ with platform*/
 #ifndef _GLOBAL_H
 #define _GLOBAL_H
 
-#define PLATFORM_PC		//ARM or PC
+#define PLATFORM_ARM		//ARM or PC
 
 #ifdef PLATFORM_PC
 #define DISPLAY_YES		//Compile the SDL lib or not(DISPLAY_NO)
@@ -42,40 +42,45 @@ struct Global_Parameter
 	int video_fps_den;
 
 	/*Encoder parameters*/
-	char encoder_qp;
+	int encoder_qp;
 	int  encoder_slice_max_size;
 
 	/*Input and output file for H264 stream, 
 		YUV stream and information*/
-	char file_YUV_output[50];
-	char file_h264_output[50];
-	char file_info_output[50];
-	char file_YUV_input[50];
+	char file_YUV_output[100];
+	char file_h264_output[100];
+	char file_info_output[100];
+	char file_YUV_input[100];
 
 	/*States and modes*/
-	char is_h264_out;		//0: do not output h264 file
+	int is_h264_out;		//0: do not output h264 file
 							//1: output h264 file
 
-	char is_YUV_out;		//0: do not output YUV file
+	int is_YUV_out;		//0: do not output YUV file
 							//1: output YUV file
 
-	char is_display;		//0: do not display video locally
+	int is_display;		//0: do not display video locally
 							//1: display   
 							//   NOTE: For ARM, do not display
 
-	char is_output_info;	//0: do not output information
+	int is_output_info;	//0: do not output information
 							//1: simple output
 							//2: detail output
 
-	char is_energy_get;		//0: do not get energy information
+	int is_energy_get;		//0: do not get energy information
 							//1: get energy information
 
-	char run_mode;			//0: Real time mode, by using camera
+	int run_mode;			//0: Real time mode, by using camera
 							//1: Test mode, by using input YUV
 
-	char encode_mode;		//0: only I frame mode
+	int encode_mode;		//0: only I frame mode
 							//1: IPPP mode
 							//2: Optimization mode
+	int encode_scenecout;
+
+	int encode_me_range;
+
+	int encode_mv_range;
 
 	/*Communication parameters*/
 	std::string ip_address_remote;

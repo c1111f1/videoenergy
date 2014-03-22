@@ -27,6 +27,10 @@ uint g_ImgHeight;
 uint8_t *g_H264_Buf;
 
 extern struct Global_Parameter G_para;
+extern float energy_stage_2[3];
+float * Get_Energy();
+extern float *energy;
+extern int NAL_num;
 
 void encode_init(Encoder *encoder, int img_width, int img_height)
 {
@@ -46,12 +50,15 @@ void encode_init(Encoder *encoder, int img_width, int img_height)
 	encoder->param->b_sliced_threads = 1;
 	encoder->param->b_vfr_input = 0;
 	encoder->param->rc.b_mb_tree = 0;
+	encoder->param->i_scenecut_threshold = G_para.encode_scenecout;
 	//encoder->param->rc.i_qp_constant = 30;
 	encoder->param->rc.i_qp_min = G_para.encoder_qp;
 	encoder->param->rc.i_qp_max = G_para.encoder_qp;
 	//encoder->param->analyse.i_me_method = X264_ME_DIA;
-	//encoder->param->analyse.i_me_range = 16;
-	//encoder->param->i_slice_max_size = 4000;
+	encoder->param->analyse.i_me_range = G_para.encode_me_range;
+	encoder->param->analyse.i_mv_range = G_para.encode_mv_range;
+
+	encoder->param->i_slice_max_size = G_para.encoder_slice_max_size;
 
 	x264_param_apply_profile(encoder->param, x264_profile_names[0]);
 
@@ -61,7 +68,6 @@ void encode_init(Encoder *encoder, int img_width, int img_height)
 	{
 		return;
 	}
-
 
 	x264_picture_alloc(encoder->picture, X264_CSP_I420, 
 		encoder->param->i_width,encoder->param->i_height);
@@ -84,6 +90,7 @@ int encode_frame(Encoder *encoder, int type, uint8_t *frame, uint8_t *h264stream
 	x264_picture_t pic_out;
 	int num_Nal = -1;
 	int result = 0;
+	
 	uint8_t *p_out = h264stream;
 	uint i = 0;
 
@@ -95,7 +102,8 @@ int encode_frame(Encoder *encoder, int type, uint8_t *frame, uint8_t *h264stream
 	int YUV420_length = encoder->param->i_width * encoder->param->i_height * 1.5;
 	memcpy(Y, frame, YUV420_length);
 
-	switch (type) {
+	switch (type) 
+	{
 		case 0:
 		encoder->picture->i_type = X264_TYPE_P;
 		break;
@@ -116,6 +124,9 @@ int encode_frame(Encoder *encoder, int type, uint8_t *frame, uint8_t *h264stream
 		return -1;
 	}
 
+	energy = Get_Energy();
+	energy_stage_2[0] = *energy;energy_stage_2[1] = *(energy + 1);energy_stage_2[2] = *(energy + 2);
+	NAL_num = num_Nal;
 	for (i = 0; i < num_Nal; i++) 
 	{
 		memcpy(p_out, encoder->nal[i].p_payload, encoder->nal[i].i_payload);
