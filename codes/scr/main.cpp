@@ -111,7 +111,6 @@ int main(int argc, char *argv[])
 		energy_stage_3[0] = *energy;energy_stage_3[1] = *(energy + 1);energy_stage_3[2] = *(energy + 2);
 
 
-
 		//energy = Get_Energy();
 
 		if (G_para.encode_mode == 2)
