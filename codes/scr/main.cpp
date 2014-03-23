@@ -154,12 +154,16 @@ int main(int argc, char *argv[])
 			energy_stage_2[0],energy_stage_2[1],energy_stage_2[2],
 			energy_stage_3[0],energy_stage_3[1],energy_stage_3[2],
 			energy_stage_4[0],energy_stage_4[1],energy_stage_4[2]);
-		fprintf(G_file.output_info_file, "%lu %lu %d %d ",frame_number, interval, h264size, NAL_num);
-		fprintf(G_file.output_info_file, "%4.2f %4.2f %4.2f %4.2f %4.2f %4.2f %4.2f %4.2f %4.2f %4.2f %4.2f %4.2f\n", 
+		if (G_para.is_output_info == 1)
+		{
+			fprintf(G_file.output_info_file, "%lu %lu %d %d ",frame_number, interval, h264size, NAL_num);
+			fprintf(G_file.output_info_file, "%4.2f %4.2f %4.2f %4.2f %4.2f %4.2f %4.2f %4.2f %4.2f %4.2f %4.2f %4.2f\n", 
 			energy_stage_1[0],energy_stage_1[1],energy_stage_1[2],
 			energy_stage_2[0],energy_stage_2[1],energy_stage_2[2],
 			energy_stage_3[0],energy_stage_3[1],energy_stage_3[2],
-			energy_stage_4[0],energy_stage_4[1],energy_stage_4[2]);		
+			energy_stage_4[0],energy_stage_4[1],energy_stage_4[2]);	
+		}
+	
 	    time_begin = (unsigned long)getCurrentTime();
 
 	}
