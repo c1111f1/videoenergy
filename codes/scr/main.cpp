@@ -34,11 +34,13 @@ void uart_init();
 float * Get_Energy();
 float energy_stage_1[3],energy_stage_2[3],energy_stage_3[3],energy_stage_4[3];
 float *energy;
+
 int NAL_num;
+
 extern struct Global_Parameter G_para;
 extern struct Global_Video G_video;
 extern struct Global_File G_file;
-
+unsigned long interval = 0, time_begin = 0, interval1 = 0; //Time control
 long getCurrentTime();
 
 long getCurrentTime()  
@@ -57,9 +59,10 @@ int main(int argc, char *argv[])
 	
 	float th = 100;
 	int h264size = 0;
-	unsigned long interval = 0, time_begin = 0; //Time control
+	
 	//Initialization
-	Global_Para_Init(argc, argv);
+	if (Global_Para_Init(argc, argv) == 0)
+		return 0;
 	if (G_para.run_mode == 0)
 	{
 		//Real time mode
@@ -76,6 +79,19 @@ int main(int argc, char *argv[])
 	energy = Get_Energy();
 
 	time_begin = (unsigned long)getCurrentTime();
+
+	if (G_para.idle_energy)
+	{
+		int test_num = 10;
+		energy = Get_Energy();
+		while(test_num--)
+		{
+			usleep(40000);
+			energy = Get_Energy();
+			printf("%4.2f\t%4.2f\t%4.2f\n", *energy, *(energy + 1), *(energy + 2));
+		}
+		return 0;
+	}
 
 	while(capture_state != -1)
 	{
@@ -103,15 +119,12 @@ int main(int argc, char *argv[])
 		{
 			fwrite(G_video.Raw_YUV420, 1, G_para.video_width * G_para.video_height * 1.5,G_file.output_YUV_file);
 		}
-
+		
 		h264size = encode_one_frame(frame_type, G_video.Raw_YUV420, G_video.Stream_H264);
 
 
 		energy = Get_Energy();
 		energy_stage_3[0] = *energy;energy_stage_3[1] = *(energy + 1);energy_stage_3[2] = *(energy + 2);
-
-
-		//energy = Get_Energy();
 
 		if (G_para.encode_mode == 2)
 		{
@@ -141,21 +154,21 @@ int main(int argc, char *argv[])
    		//printf("%lu\n",interval);
 	    if (interval <= 40)
 	    {
-	      usleep(40000 - interval * 1000);
+	      //usleep(40000 - interval * 1000);
 	    }
 
 	    energy = Get_Energy();
 		energy_stage_4[0] = *energy;energy_stage_4[1] = *(energy + 1);energy_stage_4[2] = *(energy + 2);
 
-		printf("%lu %lu %d %d ",frame_number, interval, h264size, NAL_num);
-		printf("%4.2f %4.2f %4.2f %4.2f %4.2f %4.2f %4.2f %4.2f %4.2f %4.2f %4.2f %4.2f\n", 
+		printf("%lu %lu %d %d \n",frame_number, interval1, h264size, NAL_num);
+		/*printf("%4.2f %4.2f %4.2f %4.2f %4.2f %4.2f %4.2f %4.2f %4.2f %4.2f %4.2f %4.2f\n", 
 			energy_stage_1[0],energy_stage_1[1],energy_stage_1[2],
 			energy_stage_2[0],energy_stage_2[1],energy_stage_2[2],
 			energy_stage_3[0],energy_stage_3[1],energy_stage_3[2],
-			energy_stage_4[0],energy_stage_4[1],energy_stage_4[2]);
+			energy_stage_4[0],energy_stage_4[1],energy_stage_4[2]);*/
 		if (G_para.is_output_info == 1)
 		{
-			fprintf(G_file.output_info_file, "%lu %lu %d %d ",frame_number, interval, h264size, NAL_num);
+			fprintf(G_file.output_info_file, "%lu %lu %d %d ",frame_number, interval1, h264size, NAL_num);
 			fprintf(G_file.output_info_file, "%4.2f %4.2f %4.2f %4.2f %4.2f %4.2f %4.2f %4.2f %4.2f %4.2f %4.2f %4.2f\n", 
 			energy_stage_1[0],energy_stage_1[1],energy_stage_1[2],
 			energy_stage_2[0],energy_stage_2[1],energy_stage_2[2],
@@ -184,15 +197,21 @@ void uart_init()
 #endif
 } 
 
-float x[3];
-
 float * Get_Energy()
 {
-float *p = x;
+	float x[3];
+	float *p = x;
 #ifdef PLATFORM_ARM
 	int thisByte = 33; 
     char dat[100];
     int dat_i = 0;
+    if (G_para.is_energy_get == 0)
+    {
+    	*p = -1;
+		*(p + 1) = -1;
+		*(p + 2) = -1;
+		return p;
+    } 
     Serial.print('1');
     while (Serial.available() == 0)
     {

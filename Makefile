@@ -15,7 +15,7 @@ AINCS = -I.\
 	   -I$(DIR)/libraries/LiquidCrystal 
 
 
-PLATFORM = ARM
+PLATFORM = PC
 
 ifeq ($(PLATFORM),ARM)
 	CC = arm-linux-gnueabihf-g++
@@ -54,7 +54,9 @@ all: $(BIN_PATH)$(EXENAME)
 
 $(BIN_PATH)$(EXENAME): $(OBJECTS)
 	$(CC) $(LDFLAGS) $(OBJECTS) -o $@ $(LIBS) $(DEP_LIBS)
+ifeq ($(PLATFORM),ARM)
 	scp bin/rva ubuntu@192.168.1.106:~/Real_Time_Video/
+endif
 
 $(OBJ_PATH)main.o: $(SRC_PATH)main.cpp
 	$(CC) $(CFLAGS) -c $< $(INC_C) $(AINCS) -o $@

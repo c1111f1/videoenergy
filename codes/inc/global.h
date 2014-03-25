@@ -14,7 +14,7 @@ with platform*/
 #ifndef _GLOBAL_H
 #define _GLOBAL_H
 
-#define PLATFORM_ARM		//ARM or PC
+#define PLATFORM_PC		//ARM or PC
 
 #ifdef PLATFORM_PC
 #define DISPLAY_YES		//Compile the SDL lib or not(DISPLAY_NO)
@@ -82,6 +82,8 @@ struct Global_Parameter
 
 	int encode_mv_range;
 
+	int idle_energy;
+
 	/*Communication parameters*/
 	std::string ip_address_remote;
 	unsigned int ip_port_remote;
@@ -103,11 +105,11 @@ struct Global_Video
 	uint8_t * Stream_H264;
 };
 
-void Global_Para_Init(int argc, char *argv[]);	//initialize parameters
+int Global_Para_Init(int argc, char *argv[]);	//initialize parameters
 
 void Global_Para_Default(); //Set all parameters to defaults
 
-void Global_Para_Deal(int argc, char *argv[]);
+int Global_Para_Deal(int argc, char *argv[]);
 							//Set parameters from command line
 void Global_Para_Check();	//Check the parameters
 

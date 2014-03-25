@@ -20,17 +20,18 @@ struct Global_File G_file; //Define Global parameter
 struct Global_Video G_video;
 
 //initialize parameters
-void Global_Para_Init(int argc, char *argv[])
+int Global_Para_Init(int argc, char *argv[])
 {
 	Global_Para_Default();
-	Global_Para_Deal(argc, argv);
+	if (Global_Para_Deal(argc, argv) == 0)
+		return 0;
 	Global_Para_Check();
 
 	//Creat Data space for video
 	G_video.Raw_YUV2   = (uint8_t *) malloc(sizeof(uint8_t) * G_para.video_width * G_para.video_height * 2);
 	G_video.Raw_YUV420 = (uint8_t *) malloc(sizeof(uint8_t) * G_para.video_width * G_para.video_height * 1.5);
 	G_video.Stream_H264= (uint8_t *) malloc(sizeof(uint8_t) * G_para.video_width * G_para.video_height * 1.5);
-	
+	return 1;
 }
 
 //Set all parameters to defaults
@@ -92,6 +93,8 @@ void Global_Para_Default()
 
 	G_para.encode_me_range = 16;
 
+	G_para.idle_energy = 0;
+
 	/*Communication parameters*/
 	G_para.ip_address_remote = "192.168.1.100";
 	G_para.ip_port_remote = 4444;
@@ -99,29 +102,29 @@ void Global_Para_Default()
 }
 
 //Set parameters from command line
-void Global_Para_Deal(int argc, char *argv[])
+int Global_Para_Deal(int argc, char *argv[])
 {
-	//-h height, -w width, -q qp, -p package size
-	//-i input YUV, -m run mode 0 real time 1 input file
-	//-c encode mode 0 I only 1 IPPP, 2 Optimization
-	//-e energy obtain 
-	//-a ip address, -r remote port, -l local port
-	//-s 
-	//-g,v g search range v mv range
-	//-o out put data
+	//-s Size heightxwidth, eg 352x288
+	//-q QP value
+	//-p Package size
+	//-i Input YUV
+	//-m Run mode 0 real time 1 input file
+	//-c Encode mode 0 I only 1 IPPP, 2 Optimization
+	//-e Energy obtain 
+	//-a IP address ,default:192.168.1.100
+	//-r Remote port ,default:4444
+	//-l Local port ,default:4444
+	//-g ME search range v mv range
+	//-v MV range
+	//-o Output data,
 	int opt;
-	while ((opt = getopt(argc, argv, "h:w:q:p:i:m:c:ea:r:l:s:g:o:")) != -1) 
+	while ((opt = getopt(argc, argv, "q:p:i:m:c:ea:r:l:s:g:o:dh")) != -1) 
 	{
 		switch(opt) 
 		{
-			case 'h':
+			case 's':
 			{	
-				sscanf(optarg, "%d", &G_para.video_height);
-				break;
-			}
-			case 'w':
-			{	
-				sscanf(optarg, "%d", &G_para.video_width);
+				sscanf(optarg, "%dx%d", &G_para.video_width, &G_para.video_height);
 				break;
 			}
 			case 'q':
@@ -171,11 +174,7 @@ void Global_Para_Deal(int argc, char *argv[])
 				sscanf(optarg, "%d", &G_para.ip_port_local);
 				break;
 			}
-			case 's':
-			{
-				sscanf(optarg, "%d", &G_para.encode_scenecout);
-				break;
-			}
+
 			case 'g':
 			{
 				sscanf(optarg, "%d", &G_para.encode_me_range);
@@ -193,10 +192,31 @@ void Global_Para_Deal(int argc, char *argv[])
 				G_para.is_output_info = 1;
 				break;
 			}
+			case 'd':
+			{
+				G_para.idle_energy = 1;
+			}
+			case 'h':
+			{
+				printf("\t-s Size heightxwidth, eg. 352x288\n");
+				printf("\t-q QP value\n");
+				printf("\t-p Package size\n");
+				printf("\t-i Input YUV\n");
+				printf("\t-m Run mode 0 real time 1 input file\n");
+				printf("\t-c Encode mode 0 I only 1 IPPP, 2 Optimization\n");
+				printf("\t-e Energy obtain \n");
+				printf("\t-a IP address ,default:192.168.1.100\n");
+				printf("\t-r Remote port ,default:4444\n");
+				printf("\t-l Local port ,default:4444\n");
+				printf("\t-g ME search range v mv range\n");
+				printf("\t-v MV range\n");
+				printf("\t-o Output data\n");
+				return 0;
+			}
 			
 		}
 	}
-
+	return 1;
 }
 							
 //Check the parameters							

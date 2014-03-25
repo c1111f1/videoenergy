@@ -19,6 +19,8 @@ extern "C"
 #include "encoder.h"
 #include "rtph.h"
 
+long getCurrentTime();
+
 Encoder g_X264Encoder;
 
 uint g_ImgWidth;
@@ -31,7 +33,7 @@ extern float energy_stage_2[3];
 float * Get_Energy();
 extern float *energy;
 extern int NAL_num;
-
+extern unsigned long interval, time_begin, interval1; //Time control
 void encode_init(Encoder *encoder, int img_width, int img_height)
 {
 //Set default x264 parameters
@@ -54,7 +56,7 @@ void encode_init(Encoder *encoder, int img_width, int img_height)
 	//encoder->param->rc.i_qp_constant = 30;
 	encoder->param->rc.i_qp_min = G_para.encoder_qp;
 	encoder->param->rc.i_qp_max = G_para.encoder_qp;
-	//encoder->param->analyse.i_me_method = X264_ME_DIA;
+	encoder->param->analyse.i_me_method = X264_ME_DIA;
 	encoder->param->analyse.i_me_range = G_para.encode_me_range;
 	encoder->param->analyse.i_mv_range = G_para.encode_mv_range;
 
@@ -117,12 +119,13 @@ int encode_frame(Encoder *encoder, int type, uint8_t *frame, uint8_t *h264stream
 		encoder->picture->i_type = X264_TYPE_AUTO;
 		break;
 	}
-
+time_begin = (unsigned long)getCurrentTime();
 	if (x264_encoder_encode(encoder->handle, &(encoder->nal), &num_Nal, 
 		encoder->picture, &pic_out) < 0) 
 	{
 		return -1;
 	}
+interval1 =  (unsigned long)getCurrentTime() - time_begin;
 
 	energy = Get_Energy();
 	energy_stage_2[0] = *energy;energy_stage_2[1] = *(energy + 1);energy_stage_2[2] = *(energy + 2);
