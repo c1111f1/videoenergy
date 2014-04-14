@@ -118,7 +118,7 @@ int Global_Para_Deal(int argc, char *argv[])
 	//-v MV range
 	//-o Output data,
 	int opt;
-	while ((opt = getopt(argc, argv, "q:p:i:m:c:ea:r:l:s:g:o:dh")) != -1) 
+	while ((opt = getopt(argc, argv, "q:p:i:m:c:ea:r:l:s:g:o:dhy:")) != -1) 
 	{
 		switch(opt) 
 		{
@@ -195,6 +195,7 @@ int Global_Para_Deal(int argc, char *argv[])
 			case 'd':
 			{
 				G_para.idle_energy = 1;
+				break;
 			}
 			case 'h':
 			{
@@ -212,6 +213,13 @@ int Global_Para_Deal(int argc, char *argv[])
 				printf("\t-v MV range\n");
 				printf("\t-o Output data\n");
 				return 0;
+				break;
+			}
+			case 'y':
+			{
+				G_para.is_YUV_out = 1;
+				memcpy(G_para.file_YUV_output, optarg,strlen(optarg));
+				break;
 			}
 			
 		}
