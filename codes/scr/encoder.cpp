@@ -29,7 +29,6 @@ uint g_ImgHeight;
 uint8_t *g_H264_Buf;
 
 extern struct Global_Parameter G_para;
-extern float energy_stage_2[3];
 float * Get_Energy();
 extern float *energy;
 extern int NAL_num;
@@ -128,7 +127,7 @@ time_begin = (unsigned long)getCurrentTime();
 interval1 =  (unsigned long)getCurrentTime() - time_begin;
 
 	energy = Get_Energy();
-	energy_stage_2[0] = *energy;energy_stage_2[1] = *(energy + 1);energy_stage_2[2] = *(energy + 2);
+	//energy_stage_2[0] = *energy;energy_stage_2[1] = *(energy + 1);energy_stage_2[2] = *(energy + 2);
 	NAL_num = num_Nal;
 	for (i = 0; i < num_Nal; i++) 
 	{

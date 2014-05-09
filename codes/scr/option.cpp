@@ -60,7 +60,7 @@ void Global_Para_Default()
 	strcpy(G_para.file_YUV_output, "data/yuv_output.yuv");
 	strcpy(G_para.file_h264_output, "data/264_output.264");
 	strcpy(G_para.file_info_output, "data/info.txt");
-	strcpy(G_para.file_YUV_input, "/sdcard/YUV/foreman_qcif.yuv");
+	strcpy(G_para.file_YUV_input, "/");
 
 	/*States and modes*/
 	G_para.is_h264_out = 0;	//0: do not output h264 file
@@ -218,6 +218,7 @@ int Global_Para_Deal(int argc, char *argv[])
 			case 'y':
 			{
 				G_para.is_YUV_out = 1;
+				memset(G_para.file_YUV_output,0,100);
 				memcpy(G_para.file_YUV_output, optarg,strlen(optarg));
 				break;
 			}

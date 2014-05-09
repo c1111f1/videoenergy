@@ -4,6 +4,54 @@
 		"selected_items":
 		[
 			[
+				"fra",
+				"frame_number"
+			],
+			[
+				"ang",
+				"angle_z"
+			],
+			[
+				"is_",
+				"is_YUV_out"
+			],
+			[
+				"is",
+				"is_output_info"
+			],
+			[
+				"yuv",
+				"output_YUV_file"
+			],
+			[
+				"G",
+				"G_para"
+			],
+			[
+				"st",
+				"stable_num"
+			],
+			[
+				"stat",
+				"sensor_state"
+			],
+			[
+				"stab",
+				"stable_num"
+			],
+			[
+				"tan",
+				"tangle_z"
+			],
+			[
+				"ta",
+				"tangle_x"
+			],
+			[
+				"a",
+				"angle_z"
+			],
+			[
 				"pic",
 				"picture_t"
 			],
@@ -64,14 +112,6 @@
 				"video_height"
 			],
 			[
-				"G",
-				"G_para"
-			],
-			[
-				"is",
-				"is_output_info"
-			],
-			[
 				"vid",
 				"video_width"
 			],
@@ -97,33 +137,6 @@
 			]
 		]
 	},
-	"buffers":
-	[
-		{
-			"file": "codes/scr/option.cpp",
-			"settings":
-			{
-				"buffer_size": 8082,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "codes/scr/capture.cpp",
-			"settings":
-			{
-				"buffer_size": 5889,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "github.sh",
-			"settings":
-			{
-				"buffer_size": 101,
-				"line_ending": "Unix"
-			}
-		}
-	],
 	"build_system": "Packages/User/CC.sublime-build",
 	"command_palette":
 	{
@@ -172,22 +185,26 @@
 	},
 	"file_history":
 	[
-		"/home/fred/Code/h264encoder-re-project/h264encoder-re-project/input.c",
-		"/home/fred/Code/h264encoder-re-project/h264encoder-re-project/picture_t.h",
-		"/home/fred/Code/Real-Time_Video_RTP/codes/scr/main.cpp",
-		"/home/fred/Code/Real-Time_Video_RTP/codes/scr/encoder.cpp",
-		"/home/fred/Code/Real-Time_Video_RTP/Makefile",
 		"/home/fred/Code/Real-Time_Video_RTP/codes/scr/option.cpp",
-		"/home/fred/Code/Real-Time_Video_RTP/codes/scr/rtp.cpp",
-		"/home/fred/Code/Real-Time_Video_RTP/codes/scr/capture.cpp",
+		"/home/fred/Code/Real-Time_Video_RTP/codes/scr/main.cpp",
+		"/home/fred/Code/Real-Time_Video_RTP/Makefile",
 		"/home/fred/Code/Real-Time_Video_RTP/codes/inc/global.h",
+		"/home/fred/Code/Real-Time_Video_RTP/codes/scr/encoder.cpp",
+		"/home/fred/Code/Real-Time_Video_RTP/codes/scr/capture.cpp",
+		"/usr/local/MATLAB/R2013b/bin/matlab",
+		"/home/fred/Desktop/Matlab.desktop",
+		"/home/fred/Code/const/test.cpp",
+		"/home/fred/Code/Real-Time_Video_RTP/github.sh",
+		"/home/fred/Code/h264encoder-re-project/h264encoder-re-project/input.c",
+		"/home/fred/Code/h264encoder-re-project/h264encoder-re-project/main.c",
+		"/home/fred/Code/Real-Time_Video_RTP/real-time_video_rtp.sublime-project",
+		"/home/fred/Code/h264encoder-re-project/h264encoder-re-project/picture_t.h",
+		"/home/fred/Code/Real-Time_Video_RTP/codes/scr/rtp.cpp",
 		"/home/fred/Code/h264encoder-re-project/h264encoder-re-project/input.o",
 		"/home/fred/Code/Real-Time_Video_RTP/codes/inc/rtph.h",
-		"/home/fred/Code/Real-Time_Video_RTP/github.sh",
 		"/home/fred/Code/Real-Time_Video_RTP/codes/inc/x264.h",
 		"/home/fred/Code/Real-Time_Video_RTP/codes/inc/encoder.h",
 		"/home/fred/Code/main.c",
-		"/home/fred/Code/Real-Time_Video_RTP/real-time_video_rtp.sublime-project",
 		"/home/fred/Real-Time_Video_RTP/codes/scr/trans.cpp",
 		"/home/fred/Real-Time_Video_RTP/codes/inc/trans.h",
 		"/home/fred/Real-Time_Video_RTP/codes/inc/capture.h",
@@ -233,6 +250,8 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"bus",
+			"busy",
 			"printf",
 			"cpu",
 			"is_output_info",
@@ -302,100 +321,6 @@
 		"whole_word": false,
 		"wrap": true
 	},
-	"groups":
-	[
-		{
-			"selected": 0,
-			"sheets":
-			[
-				{
-					"buffer": 0,
-					"file": "codes/scr/option.cpp",
-					"settings":
-					{
-						"buffer_size": 8082,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								3162,
-								3162
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/C++/C++.tmLanguage",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 4224.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 1,
-					"file": "codes/scr/capture.cpp",
-					"settings":
-					{
-						"buffer_size": 5889,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								967,
-								967
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/C++/C++.tmLanguage",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 528.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 2,
-					"file": "github.sh",
-					"settings":
-					{
-						"buffer_size": 101,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								101,
-								101
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/ShellScript/Shell-Unix-Generic.tmLanguage"
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				}
-			]
-		},
-		{
-			"sheets":
-			[
-			]
-		}
-	],
 	"incremental_find":
 	{
 		"height": 0.0
@@ -424,7 +349,7 @@
 		"cols":
 		[
 			0.0,
-			0.775964669332,
+			0.913937074851,
 			1.0
 		],
 		"rows":

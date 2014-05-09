@@ -97,6 +97,7 @@ static void Video_Set_Para()
 	}
 
 	ioctl(video.fd,VIDIOC_S_PARM, &video.stmpara);
+	
 	G_para.video_fps_num = video.stmpara.parm.capture.timeperframe.denominator;
 	G_para.video_fps_den = video.stmpara.parm.capture.timeperframe.numerator;
 
@@ -219,7 +220,7 @@ void Video_Init()
 
 void Video_Exit()
 {
-	Video_Streamon();
+	//Video_Streamon();
 	Video_Streamoff();
 	Video_Close();
 	Buffer_Free();

@@ -14,7 +14,7 @@ with platform*/
 #ifndef _GLOBAL_H
 #define _GLOBAL_H
 
-#define PLATFORM_PC		//ARM or PC
+#define PLATFORM_ARM		//ARM or PC
 
 #ifdef PLATFORM_PC
 #define DISPLAY_YES		//Compile the SDL lib or not(DISPLAY_NO)
